@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    <p style="color:lightgrey"> Ronda {{ group.round_number }} </p>
+    Su elección
+{% endblock %}
+
+{% block content %}
+
+    {% if player.round_number > 1 %}
+        <p>
+            Estos fueron los valores de los 2/3 del promedio en las rondas previas:
+            {{ group.two_thirds_avg_history }}
+        </p>
+    {% endif %}
+
+    {% formfield player.guess with label="Por favor seleccione un número entre 0 y 100:" %}
+    </br></br>
+    {% next_button %}
+
+    </br></br></br></br>
+    {% include Constants.instructions_template %}
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    <p style="color:lightgrey"> Ronda {{ group.round_number }} </p>
+    Resultados
+{% endblock %}
+
+{% block content %}
+    <p>
+        Estos fueron los números seleccionados: {{ sorted_guesses }} </br>
+    </p>
+
+    <p>
+{#        El promedio de los números seleccionados: {{ average }} </br>#}
+    </p>
+
+    <p>
+        2/3 del promedio de estos números es: {{ group.two_thirds_avg }};
+    </p>
+    <p>
+        La elección más próxima fue {{ group.best_guess }}.
+    </p>
+
+    <p>El número tu seleccionaste fue: {{ player.guess }}.</p>
+
+    <p>
+        {% if player.is_winner %}
+            {% if group.num_winners > 1 %}
+                Por lo tanto, es uno de los {{ group.num_winners }} ganadores
+                que empataron en la elección más próxima.
+            {% else %}
+                Por lo tanto, ¡tu ganas esta ronda!
+            {% endif %}
+        {% else %}
+            Por lo tanto, no ganaste esta ronda.
+        {% endif %}
+    Tu pago de la ronda es: {{ player.payoff }}.
+    </p>
+
+    </br></br>
+    {% next_button %}
+
+    </br></br></br></br>
+    {% include Constants.instructions_template %}
+
+{% endblock %}

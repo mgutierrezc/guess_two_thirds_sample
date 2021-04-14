@@ -1,0 +1,36 @@
+{% load otree_tags staticfiles %}
+
+<div class="instructions well well-lg">
+
+    <h3 class="panel-sub-heading">
+        Instrucciones 
+    </h3>
+
+    <p>
+        En esta parte del experiemnto vas a participar en {{ Constants.num_rounds }} rondas de la misma interacción.
+        Antes de la primera ronda, todos los participantes serán agrupdos en grupos de {{ Constants.players_per_group }} personas.
+        <strong>Los integrantes de cada grupo serán los mismos para todas las rondas de la interacción.</strong>
+        Es decir los grupos se mantendrán fijos durante todo el bloque.
+        Además, este agrupamiento se realizará al azar y de forma anónima. Es decir, ningún participante
+        sabrá quiénes son los miembros de su grupo ni durante ni después del experimento.
+    </p>
+    <h4 class="panel-sub-heading">
+        Cada Ronda
+    </h4>
+    <p>
+        Al inicio de cada ronda, cada participante escogerá un número entero entre 0 y {{ Constants.guess_max }}.
+        Después que todos han reportado sus números escogidos, la computadora calcula el promedio de todos los
+        números del grupo. Luego, la computadora calcula los dos tercios (2/3) de ese promedio.
+        El miembro que haya elegido el número más cercano a dicha magnitud (los 2/3 del promedio)
+        será declarado el ganador de la ronda.
+    </p>
+
+    <p>
+        El ganador recibirá {{ Constants.jackpot }}. En caso de empate, los {{ Constants.jackpot }}
+        serán igualmente divididos entre los ganadores.
+    </p>
+
+
+    <!--<p> Este juego se desarrollará en {{ Constants.num_rounds }} rondas.</p>-->
+
+</div>
